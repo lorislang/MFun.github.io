@@ -65,14 +65,63 @@
 									<header class="major">
 									<h1>Einführung<br />
 									</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-							
+								
+								<p>
+								Kennt ihr Super Mario? Heute zeigen wir euch etwas ganz Besonderes: Stellt euch vor, ihr springt in die Luft – und Mario springt auf dem Bildschirm. Ganz ohne Controller, nur mit euren Bewegungen vor der Kamera! Genau das werden wir zusammen programmieren.
+								</p>
+
+								<p>
+								Am Anfang eines jeden Programms werden die sogenannten Bibliotheken eingebunden.  Eine Programmbibliothek ist eine Sammlung von Klassen und Funktionen, also vorgefertigten Hilfsmitteln, die wir in unserem Code verwenden können. Solche Bibliotheken sind besonders praktisch, wenn man Funktionen immer wieder benötigt: Statt sie in jedem Programm neu zu schreiben, kann man sie einmal in eine Bibliothek packen und dann in beliebigen Projekten aufrufen. Da sehr viele Menschen weltweit mit Python arbeiten, gibt es mittlerweile eine riesige Auswahl an Bibliotheken, die für die unterschiedlichsten Aufgaben bereits fertige Lösungen bereitstellen.
+								</p>
+
+								<p>
+								Grundsätzlich unterscheidet man zwei Arten von Bibliotheken: die sogenannten <strong>Standardbibliotheken</strong> und die <strong>externen Bibliotheken</strong>. Standardbibliotheken sind bereits in Python enthalten, sobald man es installiert. Sie beinhalten grundlegende Funktionen, die in vielen Programmen gebraucht werden. In unserem Mario-Programm werden zum Beispiel die Standardbibliotheken <code>threading</code> und <code>time</code> verwendet. Die Bibliothek <code>threading</code> ermöglicht es, sogenannte „Threads“ zu starten – also mehrere Prozesse gleichzeitig ablaufen zu lassen. Das ist nützlich, wenn wir das Spiel und die Bewegungserkennung parallel laufen lassen wollen. Die Bibliothek <code>time</code> erlaubt uns, mit Zeitfunktionen zu arbeiten, zum Beispiel mit <code>sleep</code>. Diese Funktion sorgt dafür, dass der Computer eine kurze Pause einlegt – wichtig, weil Computer in viel kleineren Zeiteinheiten „denken“ als wir Menschen.
+								</p>
+
+								<p>
+								Neben diesen Standardbibliotheken brauchen wir für unser Mario-Projekt auch spezielle Bibliotheken, die nicht standardmäßig installiert sind. Dazu gehört <code>cv2</code>, eine Bibliothek zur Verarbeitung von Bildern und Videos. Sie kümmert sich darum, dass wir das Live-Bild der Webcam überhaupt nutzen können. Dann gibt es <code>YOLO</code> – das ist ein sehr bekanntes Modell für Objekterkennung. In unserem Fall nutzen wir YOLO nicht für beliebige Objekte, sondern mit einem <strong>Pose-Modell</strong>, das speziell darauf trainiert ist, den menschlichen Körper und seine Haltung zu erkennen. So kann unser Programm zum Beispiel unterscheiden, ob ihr euren Arm hebt oder springt. Außerdem verwenden wir <code>PyBoy</code>, einen Emulator für den Game Boy. Der Emulator ahmt die Funktionsweise eines echten Game Boys nach und ermöglicht es uns, Spiele wie Super Mario auf unserem PC auszuführen. Mit <code>WindowEvent</code> schließlich können wir bestimmte Aktionen auslösen – zum Beispiel das Drücken eines Knopfes oder das Pausieren des Spiels.
+								</p>
+
+								<p>
+								Nachdem die Bibliotheken eingebunden sind, wird das vortrainierte Pose-Modell geladen. Der große Vorteil: Wir müssen kein eigenes Modell trainieren, sondern nutzen ein bestehendes, das bereits genau weiß, wie es menschliche Bewegungen erkennt. Das spart uns sehr viel Zeit.
+								</p>
+
+								<p>
+								Anschließend wird der Emulator gestartet. Dafür rufen wir mit einer Funktion von PyBoy die Spieldatei auf und legen fest, in welchem Fenster das Spiel angezeigt wird. Im nächsten Schritt initialisieren wir die benötigten Knöpfe – also die Tasten, die später vom Programm „gedrückt“ werden – und schalten die Webcam ein.
+								</p>
+
+								<p>
+								Damit Mario auf eure Sprungbewegungen reagiert, wird eine kleine Hilfsfunktion geschrieben, die dafür sorgt, dass auch mehrere Sprünge hintereinander möglich sind, ohne dass ihr immer wieder neu springen müsst. Diese Funktion merkt sich euren Sprung und wiederholt ihn bei Bedarf.
+								</p>
+
+								<p>
+								Herzstück des Projekts sind die sogenannten Keypoints. Das Pose-Modell gibt für jede erkannte Person im Bild eine Reihe von Punkten zurück – diese Keypoints repräsentieren bestimmte Körperteile wie Handgelenk, Ellbogen, Knie, etc. Jeder dieser Punkte hat eine <code>x</code>- und <code>y</code>-Koordinate, die angibt, wo genau im Bild sich das Körperteil befindet. Im Code werden diese Keypoints zunächst initialisiert und mit eindeutigen Namen versehen. Es ist wichtig, sich dabei genau an die vorgegebenen Indizes und Bezeichnungen zu halten, damit später keine Verwirrung entsteht.
+								</p>
+								<div class="image main"><img src="images/einfuehrung1.png" alt="" /></div>
+								<p>
+								Ein Beispiel für eine solche Funktion, die auf den Keypoints aufbaut, ist <code>is_left_hand_left</code>. Sie prüft, ob die linke Hand links vom Ellbogen liegt und dabei in etwa auf derselben Höhe ist. In Python wird das so geschrieben:
+								</p>
+<pre style="text-align: left;"><code>
+def is_left_hand_left(elbow, wrist): 
+	dx = wrist[0] - elbow[0] 
+	dy = abs(wrist[1] - elbow[1]) 
+	return dx > 50 and dy &lt; 40  # Diese Werte können angepasst werden 
+</code></pre>
+								<br>
+								<br>
+								<p>
+								<code>def</code> steht dabei für die Definition einer Funktion. In den Klammern stehen die Variablen, die der Funktion übergeben werden, also hier die Koordinaten von Ellbogen und Handgelenk. Der Doppelpunkt signalisiert, dass nun der eigentliche Code der Funktion folgt. Man kann sich die Positionen der Keypoints wie ein Koordinatensystem vorstellen, das über die Person gelegt wird. Die Koordinaten werden in Python als Vektoren angegeben, also in der Form <code>(x, y)</code>, wobei <code>x</code> für die horizontale und <code>y</code> für die vertikale Position steht.
+								</p>
+
+								<p>
+								Auf diese Weise lassen sich beliebige Bewegungen definieren und mit bestimmten Aktionen im Spiel verknüpfen. So entsteht nach und nach die Steuerung, die Mario mit euren eigenen Bewegungen lebendig werden lässt.
+								</p>
+
+								<p>
+								Im nächsten Kapitel erfahrt ihr, wie ihr eure eigene Programmierumgebung einrichtet und alle wichtigen Dateien für das Projekt herunterladet. So seid ihr bestens vorbereitet, um den Code auszuführen und euer eigenes Mario-Steuerungssystem zum Leben zu erwecken. Viel Spaß beim Aufsetzen eurer Entwicklungsumgebung!
+								</p>
+
 							</section>
 
 						<!-- Footer -->

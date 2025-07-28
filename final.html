@@ -50,15 +50,10 @@
 								<div class="image main"><img src="images/final1.png" alt="" /></div>
 								
 								<p>
-									Sucht euch genug Platz und probiert das erste Level mit euren eigenen Bewegungen aus. Wenn ihr das Level geschafft habt, speichert eure Spieldatei mit eurem Namen ab. Dafür einfach die Datei umbenennen in:
+									Sucht euch genug Platz und probiert das erste Level mit euren eigenen Bewegungen aus. Wenn ihr das Level geschafft habt, speichert eure Spieldatei mit eurem Namen ab.
 									</p>
-
 									<p>
-									<code>mariofun_EUERNAME</code>
-									</p>
-
-									<p>
-									Öffnet dann den 🗂️ <strong>Explorer</strong> und geht auf das <strong>Transferlaufwerk</strong>. Dort findet ihr den Ordner <strong>mci_spass</strong> – kopiert eure Spieldatei hinein. Wir bekommen sie dann hier vorne auf den Computer und können eure Spiele der ganzen Klasse zeigen.
+									Öffnet dann den 🗂️ <strong>Explorer</strong> und geht auf das <strong>Transferlaufwerk</strong>. Dort findet ihr den Ordner <strong>mci_spass</strong> – kopiert eure Spieldatei (Camarioown_EUERNAME.py) hinein. Wir bekommen sie dann hier vorne auf den Computer und können eure Spiele der ganzen Klasse zeigen.
 									</p>
 
 									<p>
@@ -75,6 +70,22 @@
 									</p>
 
 								<p>Viel Spaß! 🎮</p>
+
+								<div class="checklist">
+									<div class="check-item">
+										<input type="checkbox" id="task1">
+										<label for="task1">Datei wurde ins Transferlaufwerk geladen</label>
+									</div>
+									<div class="check-item">
+										<input type="checkbox" id="task2">
+										<label for="task2">(Optional) Datei wurde per Mail weggeschickt</label>
+									</div>
+								<div id="mario-container">
+								<img id="mario-image" src="images/happymario.png" alt="Happy Mario">
+								</div>
+								
+								</div>
+								
 						
 							</section>
 
@@ -110,6 +121,28 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+
+			<script>
+				const checkbox1 = document.getElementById('task1');
+				const checkbox2 = document.getElementById('task2');
+				
+				const mario = document.getElementById('mario-container');
+
+				function checkMario() {
+					if (checkbox1.checked && checkbox2.checked) {
+					mario.style.display = 'block';
+					} else {
+					mario.style.display = 'none';
+					}
+				}
+
+				checkbox1.addEventListener('change', checkMario);
+				checkbox2.addEventListener('change', checkMario);
+				
+
+
+			</script>
 
 	</body>
 </html>

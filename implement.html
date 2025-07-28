@@ -51,7 +51,7 @@
 
 
   <p>
-    Jetzt kommen wir zum praktischen Teil! Öffnet bitte die vorbereitete Datei: <strong>Camarioown_EUERNAME.ipynb</strong>. Ihr könnt die Datei auch gleich umbenennen und euren Namen einsetzen.
+    Jetzt kommen wir zum praktischen Teil! Öffnet bitte die vorbereitete Datei: <strong>Camarioown_EUERNAME.py</strong>. Ihr könnt die Datei auch gleich umbenennen und euren Namen einsetzen.
   </p>
 
   <p>
@@ -59,7 +59,7 @@
   </p>
 
   <code>while pyboy.tick():</code>
-
+  
   <p>
     Diese Schleife bildet den <strong>Herzschlag</strong> eures Spiels. Solange der Emulator <code>pyboy</code> tickt, läuft das Spiel und ihr könnt darauf zugreifen.
   </p>
@@ -78,16 +78,27 @@ cap = cv2.VideoCapture(0)</code>
   <p>
     Um die Kamera später auch wieder zu deaktivieren und Ressourcen freizugeben, fügt diesen Code <strong>innerhalb, am Ende</strong> der while-Schleife ein:
   </p>
-
-
-
-
+  
 <pre><code># Webcam anzeigen + Keypoints darstellen
 annotated = results[0].plot()
 cv2.imshow("Pose Input", annotated)
 if cv2.waitKey(1) & 0xFF == ord('q'):
     break
 </code></pre>
+
+<p>Um die Kamera und auch das Spiel zu öffnen drückt einfach den Befehl "Run Python file" in Visual Studio Code</p>
+<p><strong>Wichtig: </strong> Ihr könnt das Spiel (und die Kamera) mit der Taste <strong>"q"</strong> beenden! </p>
+<div class="image main"><img src="images/implementieren3.png" alt="" /></div>
+								<div class="checklist">
+									<div class="check-item">
+										<input type="checkbox" id="task1">
+										<label for="task1">Kamera kann geöffnet werden</label>
+									</div>
+									<div class="check-item">
+										<input type="checkbox" id="task2">
+										<label for="task2">Kamera kann geschlossen werden</label>
+									</div>
+								</div>
 
 
 
@@ -100,7 +111,7 @@ if cv2.waitKey(1) & 0xFF == ord('q'):
   <p>
     Außerhalb der while-Schleife findet ihr z. B. die Funktion <code>is_left_really_left</code>. Sie erkennt, ob eure linke Hand weit genug links vom Ellbogen ist.
   </p>
-
+  <img src="images/implementieren2.png" alt="" />
   <p>
     Was macht die Funktion genau? Der Begriff <code>def</code> steht in Python für die Definition einer Funktion. In den Klammern übergeben wir zwei Werte – das sind unsere Keypoints. Keypoints sind einfach gesagt Koordinatenpaare: ein <strong>x</strong>- und ein <strong>y</strong>-Wert, die beschreiben, wo sich ein Körperteil im Bild befindet. Python zählt bei 0, also ist <code>[0]</code> die x-Koordinate und <code>[1]</code> die y-Koordinate.
   </p>
@@ -109,18 +120,21 @@ if cv2.waitKey(1) & 0xFF == ord('q'):
     In der Funktion wird die horizontale und vertikale Distanz der Punkte berechnet – also <code>dx</code> und <code>dy</code>. Dann prüfen wir: Ist die Hand z. B. mindestens 50 Pixel weiter links als der Ellbogen (<code>dx > 50</code>) und befindet sie sich ungefähr auf der gleichen Höhe (<code>dy &lt; 40</code>)? Nur dann wird die Funktion <code>True</code> zurückgeben.
   </p>
 
-<pre>  <code>def is_right_really_right(keyp1, keyp2):
-    dx = keyp1[0] - keyp2[0]
-    dy = abs(keyp2[1] - keyp1[1])
-    return dx > 50 and dy < 40</code></pre>
+
 
   <p>
     So verhindert ihr, dass bei kleinen oder ungenauen Bewegungen schon Aktionen ausgelöst werden. Natürlich könnt ihr die Werte <code>dx</code> und <code>dy</code> selbst anpassen – je nachdem, wie sensibel eure Steuerung reagieren soll.
   </p>
 
   <p>
-    Wichtig: Achtet auf das Vorzeichen der Werte! Je nachdem, ob ihr linke oder rechte Körperteile vergleicht, kann ein Wert auch negativ werden.
-  </p>
+    Wichtig: Achtet auf das Vorzeichen der Werte! Je nachdem, ob ihr linke oder rechte Körperteile vergleicht, kann ein Wert auch negativ werden. Hier unten ein Beispiel für die rechte Seite:
+<pre>  <code>def is_right_really_right(keyp1, keyp2):
+    dx = keyp1[0] - keyp2[0]
+    dy = abs(keyp2[1] - keyp1[1])
+    return dx > 50 and dy < 40</code></pre>  
+</p>
+
+
 
   <h3>Testen eurer Funktionen</h3>
   <p>
@@ -145,27 +159,27 @@ move_left = is_left_really_left(left_ankle, left_knee)
     Probiert einfach aus, was sich gut anfühlt – und habt Spaß beim Experimentieren mit eurer Bewegungserkennung!
   </p>
 
-
+  								<div class="checklist">
+									<div class="check-item">
+										<input type="checkbox" id="task3">
+										<label for="task3">Es wurde eine eigene Steuerung für eine Bewegung nach links erstellt</label>
+									</div>
+									<div class="check-item">
+										<input type="checkbox" id="task4">
+										<label for="task4">Es wurde eine eigene Steuerung für eine Bewegung nach rechts erstellt</label>
+									</div>
+									<div class="check-item">
+										<input type="checkbox" id="task5">
+										<label for="task5">Es wurde eine eigene Steuerung für einen Sprung erstellt</label>
+									</div>
+								</div>
+								<div id="mario-container">
+								<img id="mario-image" src="images/happymario.png" alt="Happy Mario">
+								</div>
 
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 							</section>
 
@@ -201,6 +215,33 @@ move_left = is_left_really_left(left_ankle, left_knee)
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				const checkbox1 = document.getElementById('task1');
+				const checkbox2 = document.getElementById('task2');
+				const checkbox3 = document.getElementById('task3');
+				const checkbox4 = document.getElementById('task4');
+				const checkbox5 = document.getElementById('task5');
+				
+				const mario = document.getElementById('mario-container');
+
+				function checkMario() {
+					if (checkbox1.checked && checkbox2.checked && checkbox3.checked && checkbox4.checked && checkbox5.checked) {
+					mario.style.display = 'block';
+					} else {
+					mario.style.display = 'none';
+					}
+				}
+
+				checkbox1.addEventListener('change', checkMario);
+				checkbox2.addEventListener('change', checkMario);
+				checkbox3.addEventListener('change', checkMario);
+				checkbox4.addEventListener('change', checkMario);
+				checkbox5.addEventListener('change', checkMario);
+
+
+
+			</script>
 
 	</body>
 </html>

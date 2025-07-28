@@ -58,13 +58,24 @@
 								</p>
 								<div class="image main"><img src="images/ersteschritte1.png" alt="" /></div>
 								<p></p>
-
+								<div class="checklist">
+									<div class="check-item">
+										<input type="checkbox" id="task1">
+										<label for="task1">Ordner erstellt</label>
+									</div>
+									<div class="check-item">
+										<input type="checkbox" id="task2">
+										<label for="task2">Ordner geöffnet</label>
+									</div>
+								</div>
+								<!-- Mario-Bild (zuerst unsichtbar) -->
+								
 								<h2><br />
 								GitHub</h2>
 								<p>
 									Als Nächstes laden wir uns ein paar Dateien von der GitHub-Seite von Elias herunter.  
 									Dazu gehören:  
-									<strong>UV.py</strong>, <strong>Camario.py</strong>, <strong>MarioFun.py</strong> und <strong>Super Mario Bros. Deluxe (USA, Europe) (Rev 1).gbc</strong>.  
+									<strong>uv.lock</strong>, <strong>Camario.py</strong>, <strong>Camarioown_EUERNAME.py</strong> und <strong>Super Mario Bros. Deluxe (USA, Europe) (Rev 1).gbc</strong>.  
 									<br><br>
 									Um zu Elias’ GitHub-Seite zu kommen, klickt einfach auf diesen Link:  
 									<a href="https://github.com/Misterz1x/Praktikantentage/blob/main">👉 Hier klicken</a>
@@ -77,6 +88,30 @@
 									Speichert alle Dateien in den Ordner, den ihr vorher auf eurem Desktop erstellt habt. 😊
 								</p>
 								<div class="image main"><img src="images/ersteschritte2.png" alt="" /></div>
+							
+							
+								<p></p>
+								<div class="checklist">
+									<div class="check-item">
+										<input type="checkbox" id="task3">
+										<label for="task3">GitHub Link funktioniert</label>
+									</div>
+									<div class="check-item">
+										<input type="checkbox" id="task4">
+										<label for="task4">Alle Dateien befinden sich im Ordner</label>
+									</div>
+								</div>
+								<div id="mario-container">
+								<img id="mario-image" src="images/happymario.png" alt="Happy Mario">
+								</div>
+								
+							
+							<div>
+								
+								
+							</div>
+																						
+							
 							</section>
 
 							<footer>
@@ -86,7 +121,6 @@
 									</li>
 								</ul>
 							</footer>
-
 					</div>
 
 
@@ -104,6 +138,7 @@
 			</div>
 
 		<!-- Scripts -->
+			
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -111,6 +146,31 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				const checkbox1 = document.getElementById('task1');
+				const checkbox2 = document.getElementById('task2');
+				const checkbox3 = document.getElementById('task3');
+				const checkbox4 = document.getElementById('task4');
+				
+				const mario = document.getElementById('mario-container');
+
+				function checkMario() {
+					if (checkbox1.checked && checkbox2.checked && checkbox3.checked && checkbox4.checked) {
+					mario.style.display = 'block';
+					} else {
+					mario.style.display = 'none';
+					}
+				}
+
+				checkbox1.addEventListener('change', checkMario);
+				checkbox2.addEventListener('change', checkMario);
+				checkbox3.addEventListener('change', checkMario);
+				checkbox4.addEventListener('change', checkMario);
+
+
+
+			</script>
 
 	</body>
 </html>

@@ -68,27 +68,86 @@
 										<label for="task2">Ordner geöffnet</label>
 									</div>
 								</div>
-								<!-- Mario-Bild (zuerst unsichtbar) -->
-								
-								<h2><br />
-								GitHub</h2>
-								<p>
-									Als Nächstes laden wir uns ein paar Dateien von der GitHub-Seite von Elias herunter.  
-									Dazu gehören:  
-									<strong>uv.lock</strong>, <strong>Camario.py</strong>, <strong>Camarioown_EUERNAME.py</strong> und <strong>Super Mario Bros. Deluxe (USA, Europe) (Rev 1).gbc</strong>.  
-									<br><br>
-									Um zu Elias’ GitHub-Seite zu kommen, klickt einfach auf diesen Link:  
-									<a href="https://github.com/Misterz1x/Praktikantentage/blob/main">👉 Hier klicken</a>
-									</p>
 
-									<p>
-									Auf der GitHub-Seite seht ihr die verschiedenen Dateien.  
-									Klickt jede Datei an, dann auf den Button <em>„Download Raw“</em>, um sie herunterzuladen.  
-									<br>
-									Speichert alle Dateien in den Ordner, den ihr vorher auf eurem Desktop erstellt habt. 😊
+								<h2>🎯 Nächstes Kapitel: Alles aufbauen!</h2>
+								<p>
+									Super, dass ihr so weit gekommen seid! 🛠️<br>
+									Jetzt geht's darum, eure Programmierumgebung vollständig einzurichten und alle wichtigen Dateien herunterzuladen. Keine Sorge – Schritt für Schritt und alles ganz easy! 😊
 								</p>
-								<div class="image main"><img src="images/ersteschritte2.png" alt="" /></div>
-							
+
+								<p><strong>Hinweis:</strong> Wenn ihr gerade <u>im Computerraum</u> seid, könnt ihr direkt bei <strong>Schritt 3</strong> weitermachen. Die ersten beiden Schritte braucht ihr nur <u>daheim</u>.</p>
+
+								<h3>📦 Vorbereitung zu Hause:</h3>
+								<ol>
+									<li>
+									<strong>Git installieren:</strong><br>
+									Besucht <a href="https://gitforwindows.org/" target="_blank">gitforwindows.org</a> und wählt dort unter „Assets“ die Datei <code>Git-2.50.1-64-bit.exe</code> aus.<br>
+									Führt die Datei aus und klickt euch einfach mit allen Voreinstellungen durch – nichts verändern, einfach bestätigen. So bekommt ihr die optimale Git-Erfahrung.
+									</li>
+									<li>
+									<strong>GitHub-Erweiterung in Visual Studio Code:</strong><br>
+									Öffnet Visual Studio Code, sucht im Erweiterungsbereich nach <em>GitHub Pull Requests</em> und installiert die Erweiterung.
+									</li>
+								</ol>
+
+								<h3>💾 Repository klonen:</h3>
+								<ol start="3">
+									<li>
+									Öffnet ein Terminal in Visual Studio Code. Achtet darauf, dass ihr euch im gewünschten Projektordner befindet – dieser sollte unten im Terminalpfad sichtbar sein.<br>
+									Gebt nun folgenden Befehl ein, um das Projekt von GitHub herunterzuladen:<br>
+									<code>git clone https://github.com/Misterz1x/Praktikantentage.git</code>
+									</li>
+								</ol>
+								<div class="image main"><img src="images/ersteschritte3.png" alt="" /></div>
+
+								<h3>⚙️ UV-Projekt vorbereiten:</h3>
+								<p><strong>Hinweis:</strong> Wenn ihr im Computerraum seid, sind die nächsten drei Schritte bereits erledigt – ihr könnt direkt bei <strong>Schritt 4</strong> weitermachen.</p>
+								<ol start="4">
+									<li>
+									<strong>PowerShell öffnen und UV installieren:</strong><br>
+									Gebt folgenden Befehl in eure PowerShell ein:<br>
+									<code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code>
+									</li>
+									<li>
+									<strong>Pfad setzen:</strong><br>
+									Ihr bekommt nach der Installation einen Pfad wie <code>$env:Path = "C:\Users\..."</code> angezeigt.<br>
+									Kopiert diesen Befehl und führt ihn direkt in der PowerShell aus, um UV global nutzbar zu machen.
+									</li>
+									<li>
+									<strong>UV-Version prüfen:</strong><br>
+									Gebt folgenden Befehl ein:<br>
+									<code>uv --version</code><br>
+									Wenn <code>0.8.3</code> oder etwas Ähnliches angezeigt wird, ist alles korrekt eingerichtet!
+									</li>
+								</ol>
+
+								<h3>🐍 Virtuelle Umgebung starten:</h3>
+								<ol start="7">
+									<li>
+									<strong>Virtuelle Umgebung erstellen:</strong><br>
+									Öffnet in Visual Studio Code ein Terminal und gebt folgenden Befehl ein:<br>
+									<code>uv venv</code>
+									</li>
+									<li>
+									<strong>Aktivieren der Umgebung:</strong><br>
+									<code>.venv\Scripts\activate</code><br>
+									Jetzt sollte im Terminal vor dem Pfad etwas wie <code>(Praktikantentage)</code> stehen – das zeigt an, dass ihr in der richtigen Umgebung arbeitet.
+									</li>
+									<li>
+									<strong>Benötigte Bibliotheken installieren:</strong><br>
+									<code>uv pip install -r pyproject.toml</code><br>
+									Damit installiert ihr alles, was das Projekt braucht.
+									</li>
+								</ol>
+
+								<h3>🚀 Letzter Check: Spiel starten!</h3>
+								<p>
+									Um zu prüfen, ob alles funktioniert, könnt ihr jetzt unser Mario-Spiel starten:<br>
+									<code>python camario.py</code><br>
+									Viel Spaß! 🍄🎮
+								</p>
+
+
 							
 								<p></p>
 								<div class="checklist">

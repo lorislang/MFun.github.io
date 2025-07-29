@@ -72,6 +72,7 @@ input, select, textarea {
 	appearance: none;
 }
 
+
 /* Basic */
 
 	@-ms-viewport {
@@ -257,9 +258,12 @@ input, select, textarea {
 		font-family: "Courier New", monospace;
 		font-size: 0.9rem;
 		margin: 0 0 2rem 0;
+		
+
 	}
 
 		pre code {
+			
 			display: block;
 			line-height: 1.75;
 			padding: 1rem 1.5rem;
@@ -2153,6 +2157,29 @@ input, select, textarea {
 			padding: 0 1.5rem;
 		}
 
+		button.copy-btn {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background-color: #ddd; /* Hellgrau */
+			color: #333;            /* Dunkelgrauer Text */
+			border: 1px solid #bbb;
+			padding: 6px 12px;
+			cursor: pointer;
+			border-radius: 5px;
+			font-size: 0.9em;
+			transition: background-color 0.2s ease;
+		}
+
+		button.copy-btn:hover {
+			background-color: #ccc; /* Etwas dunkler beim Hover */
+		}
+
+		.code-container {
+		position: relative;
+		margin-bottom: 2em;
+		}
+
 		input[type="submit"].large,
 		input[type="reset"].large,
 		input[type="button"].large,
@@ -2690,6 +2717,8 @@ input, select, textarea {
 		padding-left: 0;
 	}
 
+	
+
 		ul.actions li {
 			padding: 0 0 0 1rem;
 			vertical-align: middle;
@@ -2852,7 +2881,10 @@ input, select, textarea {
 		list-style: disc;
 		margin: 0 0 2rem 0;
 		padding-left: 1rem;
+		
 	}
+		
+
 
 		ul li {
 			padding-left: 0.5rem;
@@ -3794,6 +3826,7 @@ input, select, textarea {
 		}
 
 /* Main */
+ 
 
 	#main {
 		background-color: #ffffff;
@@ -4727,3 +4760,14 @@ input, select, textarea {
 		}
 
 	}
+
+#mario-container {
+  margin-top: 2em;
+  text-align: center;
+  display: none; /* <-- Zuerst ausblenden */
+}
+
+#mario-image {
+  width: 120px;
+  height: auto;
+}

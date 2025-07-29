@@ -87,6 +87,7 @@
 									<li>
 									<strong>GitHub-Erweiterung in Visual Studio Code:</strong><br>
 									Öffnet Visual Studio Code, sucht im Erweiterungsbereich nach <em>GitHub Pull Requests</em> und installiert die Erweiterung.
+									<div class="image main"><img src="images/ersteschritte5.png" alt="" /></div>
 									</li>
 								</ol>
 
@@ -95,28 +96,57 @@
 									<li>
 									Öffnet ein Terminal in Visual Studio Code. Achtet darauf, dass ihr euch im gewünschten Projektordner befindet – dieser sollte unten im Terminalpfad sichtbar sein.<br>
 									Gebt nun folgenden Befehl ein, um das Projekt von GitHub herunterzuladen:<br>
-									<code>git clone https://github.com/Misterz1x/Praktikantentage.git</code>
-									</li>
+									
+									<div class="code-container">
+										<button class="copy-btn" onclick="copyCode('code1')">📋 Kopieren</button>
+										<pre><code id="code1">git clone https://github.com/Misterz1x/Praktikantentage.git</code></pre>
+									</div>
+										</li>
 								</ol>
 								<div class="image main"><img src="images/ersteschritte3.png" alt="" /></div>
-
+								<p> Nun müsst ihr nur noch das richtige Verzeichnis auswählen, dazu schreibt einfach:
+									
+									<div class="code-container">
+										<button class="copy-btn" onclick="copyCode('code2')">📋 Kopieren</button>
+										<pre><code id="code2">cd Praktikantentage</code></pre>
+									</div>
+									
+									 in das Terminal </p>
+								
 								<h3>⚙️ UV-Projekt vorbereiten:</h3>
-								<p><strong>Hinweis:</strong> Wenn ihr im Computerraum seid, sind die nächsten drei Schritte bereits erledigt – ihr könnt direkt bei <strong>Schritt 4</strong> weitermachen.</p>
+								<p><strong>Hinweis:</strong> Wenn ihr im Computerraum seid, sind die nächsten drei Schritte bereits erledigt – ihr könnt direkt bei <strong>Schritt 7</strong> weitermachen.</p>
 								<ol start="4">
 									<li>
 									<strong>PowerShell öffnen und UV installieren:</strong><br>
 									Gebt folgenden Befehl in eure PowerShell ein:<br>
-									<code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code>
+									
+									<div class="code-container">
+										<button class="copy-btn" onclick="copyCode('code3')">📋 Kopieren</button>
+										<pre><code id="code3">powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+									</div>
+									
+									
+									
 									</li>
+									<div class="image main"><img src="images/ersteschritte4.png" alt="" /></div>
+									
 									<li>
+									
 									<strong>Pfad setzen:</strong><br>
 									Ihr bekommt nach der Installation einen Pfad wie <code>$env:Path = "C:\Users\..."</code> angezeigt.<br>
-									Kopiert diesen Befehl und führt ihn direkt in der PowerShell aus, um UV global nutzbar zu machen.
-									</li>
+									Kopiert diesen Befehl und führt ihn direkt in der PowerShell aus, um UV global nutzbar zu machen.<br>
+									<strong>Wichtig:</strong> Wählt die Zeile für Powershell aus und kopiert nur bis ihr bei der Klammer seid, das (Powershell) könnt ihr weglassen
+								</li>
 									<li>
 									<strong>UV-Version prüfen:</strong><br>
-									Gebt folgenden Befehl ein:<br>
-									<code>uv --version</code><br>
+									Gebt folgenden Befehl in der <strong>Powershell	</strong> ein:<br>
+									
+									<div class="code-container">
+										<button class="copy-btn" onclick="copyCode('code4')">📋 Kopieren</button>
+										<pre><code id="code4">uv --version</code></pre>
+									</div>
+									
+									
 									Wenn <code>0.8.3</code> oder etwas Ähnliches angezeigt wird, ist alles korrekt eingerichtet!
 									</li>
 								</ol>
@@ -125,25 +155,46 @@
 								<ol start="7">
 									<li>
 									<strong>Virtuelle Umgebung erstellen:</strong><br>
-									Öffnet in Visual Studio Code ein Terminal und gebt folgenden Befehl ein:<br>
-									<code>uv venv</code>
+									Öffnet in Visual Studio Code ein Terminal und gebt folgenden Befehl ein: <br>
+									(wenn ihr es zuvor bereits offen hattet, bitte schließt es und öffnet es erneut)<br>
+									
+									
+
+									<div class="code-container">
+										<button class="copy-btn" onclick="copyCode('code5')">📋 Kopieren</button>
+										<pre><code id="code5">uv venv</code></pre>
+									</div>
+
+									
 									</li>
 									<li>
 									<strong>Aktivieren der Umgebung:</strong><br>
-									<code>.venv\Scripts\activate</code><br>
+									
+									<div class="code-container">
+										<button class="copy-btn" onclick="copyCode('code6')">📋 Kopieren</button>
+										<pre><code id="code6">.venv\Scripts\activate</code></pre>
+									</div>
+									
 									Jetzt sollte im Terminal vor dem Pfad etwas wie <code>(Praktikantentage)</code> stehen – das zeigt an, dass ihr in der richtigen Umgebung arbeitet.
 									</li>
 									<li>
 									<strong>Benötigte Bibliotheken installieren:</strong><br>
-									<code>uv pip install -r pyproject.toml</code><br>
-									Damit installiert ihr alles, was das Projekt braucht.
+									<div class="code-container">
+										<button class="copy-btn" onclick="copyCode('code7')">📋 Kopieren</button>
+										<pre><code id="code7">uv pip install -r pyproject.toml</code></pre>
+									</div>
+									Damit installiert ihr alles, was das Projekt braucht. (Dies könnte circa 2 - 5 Minuten dauern)
 									</li>
 								</ol>
 
 								<h3>🚀 Letzter Check: Spiel starten!</h3>
 								<p>
 									Um zu prüfen, ob alles funktioniert, könnt ihr jetzt unser Mario-Spiel starten:<br>
-									<code>python camario.py</code><br>
+									
+									<div class="code-container">
+										<button class="copy-btn" onclick="copyCode('code8')">📋 Kopieren</button>
+										<pre><code id="code8">python camario.py</code></pre>
+									</div>
 									Viel Spaß! 🍄🎮
 								</p>
 
@@ -205,6 +256,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/copy.js"></script>
 
 			<script>
 				const checkbox1 = document.getElementById('task1');

@@ -72,19 +72,25 @@
     Starten wir mit dem Aktivieren der Kamera. Fügt folgenden Code bitte <strong>außerhalb</strong> der while-Schleife ein:
   </p>
 
-  <code># Webcam aktivieren
-cap = cv2.VideoCapture(0)</code>
-
+   <div class="code-container">
+		<button class="copy-btn" onclick="copyCode('code9')">📋 Kopieren</button>
+		<pre><code id="code9">cap = cv2.VideoCapture(0)</code></pre>
+   </div>
+  
   <p>
     Um die Kamera später auch wieder zu deaktivieren und Ressourcen freizugeben, fügt diesen Code <strong>innerhalb, am Ende</strong> der while-Schleife ein:
   </p>
-  
-<pre><code># Webcam anzeigen + Keypoints darstellen
+
+  <div class="code-container">
+		<button class="copy-btn" onclick="copyCode('code10')">📋 Kopieren</button>
+<pre><code id="code10">
 annotated = results[0].plot()
 cv2.imshow("Pose Input", annotated)
 if cv2.waitKey(1) & 0xFF == ord('q'):
-    break
+	break
 </code></pre>
+   </div>
+
 
 <p>Um die Kamera und auch das Spiel zu öffnen drückt einfach den Befehl "Run Python file" in Visual Studio Code</p>
 <p><strong>Wichtig: </strong> Ihr könnt das Spiel (und die Kamera) mit der Taste <strong>"q"</strong> beenden! </p>
@@ -128,6 +134,8 @@ if cv2.waitKey(1) & 0xFF == ord('q'):
 
   <p>
     Wichtig: Achtet auf das Vorzeichen der Werte! Je nachdem, ob ihr linke oder rechte Körperteile vergleicht, kann ein Wert auch negativ werden. Hier unten ein Beispiel für die rechte Seite:
+
+
 <pre>  <code>def is_right_really_right(keyp1, keyp2):
     dx = keyp1[0] - keyp2[0]
     dy = abs(keyp2[1] - keyp1[1])
@@ -215,6 +223,8 @@ move_left = is_left_really_left(left_ankle, left_knee)
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/copy.js"></script>
+			
 
 			<script>
 				const checkbox1 = document.getElementById('task1');
@@ -245,3 +255,5 @@ move_left = is_left_really_left(left_ankle, left_knee)
 
 	</body>
 </html>
+
+

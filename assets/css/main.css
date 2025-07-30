@@ -4770,3 +4770,20 @@ input, select, textarea {
   width: 120px;
   height: auto;
 }
+
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("images/mariobg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* optional */
+  z-index: -10;
+  opacity: 0.7; /* kannst du anpassen */
+}

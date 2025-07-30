@@ -80,6 +80,11 @@
   <p>
     Um die Kamera später auch wieder zu deaktivieren und Ressourcen freizugeben, fügt diesen Code <strong>innerhalb, am Ende</strong> der while-Schleife ein:
   </p>
+  <p><strong>Wichtig:</strong> Wenn ihr das daheim ausprobieren wollt und ihr mehrere Kameras angeschlossen habt, müsst ihr den Wert innerhalb von <strong>VideoCapture</strong>
+   verändern! Um den richtigen Wert zu finden, geht auf Einstellungen --> Bluetooth und Geräte --> Kameras und analysiert dieses Feld. Die <strong>erste</strong> Position wird 
+   im <strong>VideoCapture </strong>als 0 angegeben. Wenn eure korrekte Kamera in dem Fall an der 3ten Stelle in dieser Anzeige aufscheint müsst ihr also <strong>VideoCapture(2)</strong>
+   schreiben. 
+</p>
 
   <div class="code-container">
 		<button class="copy-btn" onclick="copyCode('code10')">📋 Kopieren</button>

@@ -1,4 +1,6 @@
-Eine Anleitung um eine eigene Steuerung für Super Mario Deluxe zu programmieren. Based on Massively HTML5 Page by aj@lkn.io
+Custom Camera Controller for Super Mario Deluxe
+A step‑by‑step guide to creating your own control system (camera) for Super Mario Deluxe.
+Based on the Massively HTML5 Page template by aj@lkn.io.
 
 
 Credits:
